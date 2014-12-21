@@ -9,6 +9,6 @@ GettingandCleaningDataProject
 
 <p> The script will create the file Final_dataset.txt in you working directory. It also will let a final_dataset data.frame in the memory of your R session. </p>
 
-<p> More information can be found in codebook.md and in the script's inline comments.</p>
+<p> More information can be found in codebook.md and in the script's inline comments (which separate the code in 5 parts corresponding to the 5 points of the project instructions).</p>
 
 
