@@ -1,6 +1,9 @@
 library(dplyr)
 #1-MERGE TRAINING AND TEST SETS 
-#1.1. Read data files
+#1.1. Read data files.
+#All path to files are relative to the working directory where this
+#script is saved. Data stem from ./UCI HAR Dataset/
+
 message("reading train files ...")
 X_train <- read.table(file = "./UCI HAR Dataset/train/X_train.txt",sep = "")
 Y_train<- read.table(file = "./UCI HAR Dataset/train/y_train.txt")
@@ -13,9 +16,9 @@ Subj_test <- read.table(file = "./UCI HAR Dataset/test/subject_test.txt")
 X_unified <- rbind(X_train, X_test)  
 Y_unified <- rbind(Y_train, Y_test)
 Subj_unified <- rbind(Subj_train, Subj_test)
-names(Subj_unified) <- "subject"  #Assing descriptive name to variable
-                                 #Names for the variables of other tables are
-                                 # assigned below
+names(Subj_unified) <- "subject"  #Assing descriptive name.
+                                 #Names for the resting variables are
+                                 #assigned below
 rm(X_train, X_test, Subj_train, Subj_test, Y_train, Y_test)  #Release memory. Remove unnecesary tables
 
 message("Organizing and aggregating data ...")
@@ -27,7 +30,7 @@ var_names[, 2] <- make.names(var_names[,2], unique=TRUE) #makes syntactically va
 selected_vars <- (regexpr("mean", var_names[, 2])>0 
                 | regexpr("std", var_names[, 2])>0)
 mean_sd_dataset <- X_unified[, selected_vars]
-#mean_sd_dataset <- tbl_df(X_unified[, selected_vars])
+
 rm(X_unified) 
 
 #3. NAME ACTIVITIES IN THE DATA SET
@@ -35,7 +38,6 @@ rm(X_unified)
 #labels are in the activity_labels.txt file. So both tables will be joined by 
 #activity code (V1)
 activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt", stringsAsFactors=FALSE)
-#activity_labels <- tbl_df(read.table("./UCI HAR Dataset/activity_labels.txt"))
 Y_unified <- left_join(Y_unified, activity_labels, by = "V1")
 names(Y_unified) <- c("activity_code", "activity_name") #Assign descriptive names
 
