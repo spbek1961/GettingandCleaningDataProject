@@ -16,12 +16,13 @@ Subj_test <- read.table(file = "./UCI HAR Dataset/test/subject_test.txt")
 X_unified <- rbind(X_train, X_test)  
 Y_unified <- rbind(Y_train, Y_test)
 Subj_unified <- rbind(Subj_train, Subj_test)
-names(Subj_unified) <- "subject"  #Assing descriptive name.
+names(Subj_unified) <- "subject" #Assing descriptive name.
                                  #Names for the resting variables are
                                  #assigned below
 rm(X_train, X_test, Subj_train, Subj_test, Y_train, Y_test)  #Release memory. Remove unnecesary tables
 
 message("Organizing and aggregating data ...")
+
 #2-EXTRACT MEASUREMENTS ON THE MEAN AND STANDARD DEVIATION
 # Will read variable names from file features.txt; Var labels which contain the string "mean" or "std"
 #are added to the new dataset.
@@ -59,4 +60,5 @@ final_dataset <- aggregate(mean_sd_dataset[3:81],by = list(activity = mean_sd_da
                                                        subject = mean_sd_dataset$subject), 
                            mean)
 rm(mean_sd_dataset)
+write.table(final_dataset, "./Final_dataset.txt")
 message("Done")
