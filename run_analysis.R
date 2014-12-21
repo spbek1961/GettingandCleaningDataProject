@@ -60,5 +60,5 @@ final_dataset <- aggregate(mean_sd_dataset[3:81],by = list(activity = mean_sd_da
                                                        subject = mean_sd_dataset$subject), 
                            mean)
 rm(mean_sd_dataset)
-write.table(final_dataset, "./Final_dataset.txt")
+write.table(final_dataset, "./Final_dataset.txt", row.names = FALSE)
 message("Done")
