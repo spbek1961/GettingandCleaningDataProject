@@ -1,18 +1,23 @@
 <h1>Codebook. Getting and Cleaning Data Course Project</h1>
-<h2>The final result is Final_dataset.txt</h2>
-<h2>The script run_analysis.R produces Final_dataset from the Human Activity Recognition Using Smartphones data set (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)</h2>
-<h2>The script binds data from X_test.txt and X_train.txt files which contain around 3000 and 7300 observations respectively of 561 variables into a single data set of some 10300 observations. Files Y_test.txt, Y_train.txt, Subject_test.txt and Subject_train.txt contain the activity performed by the subject and the subject of the measurements for each of the 10300 observations. These files are joined to the measurements data set to produce a single data set with all the information. 
+<h2>The final result is Final_dataset.txt</p>
+<p>The script run_analysis.R produces Final_dataset from the Human Activity Recognition Using Smartphones data set (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)</p>
+<p>The script binds data from X_test.txt and X_train.txt files which contain around 3000 and 7300 observations respectively of 561 variables into a single data set of some 10300 observations. Files Y_test.txt, Y_train.txt, Subject_test.txt and Subject_train.txt contain the activity performed by the subject and the subject of the measurements for each of the 10300 observations. These files are joined to the measurements data set to produce a single data set with all the information. 
 The file features.txt contains the names of the 561 variables which are extracted and applied to the unified data set.
 The file activity_labels.txt contains the names of the 6 activities performed by the subjects and it is used to generate a new
-variable which links activity codes (from Y_test and Y_train) to human-readable activity_names</h2>
-<h2>The variables of interest, i.e. those containing "mean" or "std" in their names are subsetted for further processing </h2>
-<h2> Finally, the mean of the selected variables grouped by subject and activity is calculated to produce Final_dataset </h2>
-<h2> List of variables of Final_dataset: </h2>
+variable which links activity codes (from Y_test and Y_train) to human-readable activity_names</p>
+<p>The variables of interest, i.e. those containing "mean" or "std" in their names are subsetted for further processing </p>
+<p> Finally, the mean of the selected variables grouped by subject and activity is calculated to produce Final_dataset </p>
 
-* "activity"      factor 6 values
-            
-      
-* "subject"       Number of the the subject, 1:30 (data from 30 subjects)
+<h3> List of variables of Final_dataset: </h3>
+
+* "activity"                  factor 6 values
+            "LAYING"
+            "SITTING"
+            "STANDING"
+            "WALKING"
+            "WALKING_DOWNSTAIRS"
+            "WALKING_UPSTAIRS"
+* "subject"                   Number of the the subject, 1:30 (data from 30 subjects)
 * "tBodyAcc.mean...X"
 * "tBodyAcc.mean...Y"
 * "tBodyAcc.mean...Z"
