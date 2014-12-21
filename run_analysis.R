@@ -43,12 +43,12 @@ Y_unified <- left_join(Y_unified, activity_labels, by = "V1")
 names(Y_unified) <- c("activity_code", "activity_name") #Assign descriptive names
 
 #4. LABEL THE DATA WITH DESCRIPTIVE VARIABLE NAMES
-#Descriptive variable names are stored in var_names table read above. Only
-#selected_vars are included in the mean_sd_dataset. 
-names(mean_sd_dataset) <- var_names[selected_vars, 2]#assign names.
+#Descriptive variable names are stored in var_names table created above. 
+#Only selected_vars are included in the mean_sd_dataset. 
+names(mean_sd_dataset) <- var_names[selected_vars, 2]   #assign names.
 
 
-#MERGE the mean_sd_dataset with the activities (Y_unified) and subject 
+#Merge the mean_sd_dataset with the activities (Y_unified) and subject 
 #(Subj_unified) datasets. This completes all steps up to 4.
 mean_sd_dataset <- cbind(Subj_unified, Y_unified, mean_sd_dataset)
 rm(Subj_unified, Y_unified, var_names, activity_labels, selected_vars)
