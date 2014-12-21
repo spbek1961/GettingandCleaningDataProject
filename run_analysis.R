@@ -35,9 +35,9 @@ mean_sd_dataset <- X_unified[, selected_vars]
 rm(X_unified) 
 
 #3. NAME ACTIVITIES IN THE DATA SET
-#Activities codes for each observation are stored in the Y_unified table read above, and activity
-#labels are in the activity_labels.txt file. So both tables will be joined by 
-#activity code (V1)
+#Activities codes for each observation are stored in the Y_unified table created above,
+#and activity labels are in the activity_labels.txt file. So activity_labels will be read
+#and both tables will be joined by activity code (V1)
 activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt", stringsAsFactors=FALSE)
 Y_unified <- left_join(Y_unified, activity_labels, by = "V1")
 names(Y_unified) <- c("activity_code", "activity_name") #Assign descriptive names
